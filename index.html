@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kuruba Kuruba Teja | Data Analyst & ML Engineer Portfolio</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- Typed.js for dynamic role text -->
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+  <style>
+    :root {
+      --bg-color: #0b0908;
+      --bg-surface: rgba(26, 20, 18, 0.7);
+      --card-border: rgba(255, 120, 60, 0.15);
+      --card-border-hover: rgba(255, 107, 44, 0.5);
+      --primary-orange: #ff6b2c;
+      --primary-amber: #ff9800;
+      --text-main: #f8fafc;
+      --text-muted: #a39e99;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+      background-image: 
+        radial-gradient(circle at 75% 25%, rgba(255, 107, 44, 0.16) 0%, transparent 45%),
+        radial-gradient(circle at 20% 80%, rgba(255, 152, 0, 0.08) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+
+    h1, h2, h3, h4, h5, .brand-logo {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* Floating Pill Navigation Bar */
+    .header-nav {
+      position: fixed;
+      top: 24px;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      padding: 0 20px;
+    }
+
+    .nav-pill {
+      background: rgba(18, 14, 13, 0.82);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 50px;
+      padding: 10px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1050px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .brand-logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-logo span {
+      color: var(--primary-orange);
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 28px;
+    }
+
+    .nav-menu a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .nav-menu a:hover {
+      color: var(--primary-orange);
+    }
+
+    .btn-nav-action {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .btn-nav-action:hover {
+      background: var(--primary-orange);
+      color: #fff;
+      border-color: var(--primary-orange);
+    }
+
+    /* Container Spacing */
+    .main-wrapper {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 130px 24px 60px;
+    }
+
+    section {
+      padding: 70px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .section-tag {
+      color: var(--primary-orange);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      display: inline-block;
+    }
+
+    .section-heading {
+      font-size: 34px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 35px;
+    }
+
+    /* Hero Section */
+    .hero-container {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 40px 0 80px;
+      position: relative;
+    }
+
+    .greeting-badge {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .hero-title {
+      font-size: 56px;
+      font-weight: 800;
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 24px;
+    }
+
+    .hero-title span.role-gradient {
+      background: linear-gradient(135deg, #fff 30%, var(--primary-orange) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Buttons */
+    .btn-hero-primary {
+      background: var(--primary-orange);
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      box-shadow: 0 8px 24px rgba(255, 107, 44, 0.35);
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .btn-hero-primary:hover {
+      background: #ff5714;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(255, 107, 44, 0.5);
+    }
+
+    .btn-hero-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #fff;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 12px 26px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+
+    .btn-hero-secondary:hover {
+      background: rgba(255, 255, 255, 0.09);
+      color: var(--primary-orange);
+      border-color: var(--primary-orange);
+    }
+
+    /* Hero Bio Quote Glass Card */
+    .hero-quote-card {
+      background: var(--bg-surface);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 24px;
+      margin-top: 35px;
+      max-width: 480px;
+      position: relative;
+    }
+
+    .quote-icon {
+      color: var(--primary-orange);
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .hero-quote-card p {
+      color: var(--text-muted);
+      font-size: 13.5px;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .quote-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .quote-avatar-mini {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 107, 44, 0.15);
+      border: 2px solid var(--primary-orange);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+    }
+
+    .quote-author-info h6 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .quote-author-info small {
+      color: var(--text-muted);
+      font-size: 11px;
+    }
+
+    /* Orbital Hero Visual (Right Side) */
+    .orbital-container {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .glow-backdrop {
+      position: absolute;
+      width: 330px;
+      height: 330px;
+      background: radial-gradient(circle, rgba(255, 107, 44, 0.45) 0%, rgba(255, 152, 0, 0.15) 50%, transparent 70%);
+      filter: blur(40px);
+      z-index: 1;
+      border-radius: 50%;
+    }
+
+    .orbit-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px dashed rgba(255, 120, 60, 0.25);
+      z-index: 2;
+    }
+
+    .ring-1 {
+      width: 290px;
+      height: 290px;
+      animation: spin 30s linear infinite;
+    }
+
+    .ring-2 {
+      width: 410px;
+      height: 410px;
+      border-color: rgba(255, 120, 60, 0.15);
+      animation: spin-reverse 45s linear infinite;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes spin-reverse {
+      from { transform: rotate(360deg); }
+      to { transform: rotate(0deg); }
+    }
+
+    /* 3D Avatar & Speech Bubble */
+    .avatar-interactive-wrap {
+      position: relative;
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      animation: float 4s ease-in-out infinite alternate;
+    }
+
+    .avatar-speech-bubble {
+      background: rgba(28, 20, 18, 0.95);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid var(--primary-orange);
+      color: #fff;
+      padding: 9px 18px;
+      border-radius: 20px;
+      font-size: 13.5px;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(255, 107, 44, 0.25);
+      margin-bottom: 12px;
+      position: relative;
+      white-space: nowrap;
+      animation: popIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    .avatar-speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 8px 8px 0;
+      border-style: solid;
+      border-color: var(--primary-orange) transparent;
+      display: block;
+      width: 0;
+    }
+
+    .wave-hand {
+      display: inline-block;
+      animation: wave 1.8s infinite;
+      transform-origin: 70% 70%;
+    }
+
+    @keyframes wave {
+      0% { transform: rotate(0deg) }
+      10% { transform: rotate(14deg) }
+      20% { transform: rotate(-8deg) }
+      30% { transform: rotate(14deg) }
+      40% { transform: rotate(-4deg) }
+      50% { transform: rotate(10deg) }
+      60% { transform: rotate(0deg) }
+      100% { transform: rotate(0deg) }
+    }
+
+    @keyframes popIn {
+      0% { opacity: 0; transform: translateY(10px) scale(0.9); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .main-avatar-wrap {
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      padding: 6px;
+      background: linear-gradient(135deg, var(--primary-orange), rgba(255,255,255,0.15));
+      box-shadow: 0 0 40px rgba(255, 107, 44, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: radial-gradient(circle at 50% 40%, #2a1f1b, #130d0b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 105px;
+      user-select: none;
+      border: 2px solid rgba(255, 107, 44, 0.3);
+    }
+
+    /* Floating Analytics Shadow Cards & Widgets */
+    .analytics-shadow-card {
+      position: absolute;
+      background: rgba(22, 16, 14, 0.9);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 120, 60, 0.3);
+      border-radius: 14px;
+      padding: 10px 16px;
+      z-index: 5;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(255, 107, 44, 0.2);
+      animation: float 4s ease-in-out infinite alternate;
+      font-size: 12px;
+    }
+
+    .analytics-widget-1 {
+      top: 15px;
+      left: 5px;
+      animation-delay: 0s;
+    }
+
+    .analytics-widget-2 {
+      bottom: 20px;
+      right: 10px;
+      animation-delay: 1.5s;
+    }
+
+    .analytics-widget-3 {
+      top: 30px;
+      right: 5px;
+      animation-delay: 2.2s;
+    }
+
+    .sql-code-text {
+      font-family: 'Fira Code', monospace;
+      font-size: 12px;
+      font-weight: 600;
+      color: #00f2fe !important;
+      letter-spacing: 0.5px;
+      text-shadow: 0 0 8px rgba(0, 242, 254, 0.4);
+    }
+
+    .mini-bar-chart {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+      height: 26px;
+      margin-top: 6px;
+    }
+
+    .mini-bar {
+      width: 6px;
+      border-radius: 3px;
+      background: var(--primary-orange);
+    }
+
+    .floating-tech-icon {
+      position: absolute;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: rgba(28, 20, 18, 0.9);
+      border: 1px solid rgba(255, 120, 60, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+      z-index: 4;
+      animation: float 4s ease-in-out infinite alternate;
+    }
+
+    .tech-pos-1 { bottom: 80px; left: 10px; animation-delay: 0.5s; color: #4facfe; }
+    .tech-pos-2 { top: 110px; left: -10px; animation-delay: 1.2s; color: #ffca28; }
+    .tech-pos-3 { bottom: 110px; right: -10px; animation-delay: 1.8s; color: #00e676; }
+
+    @keyframes float {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-8px); }
+    }
+
+    /* Glass Boxes */
+    .glass-box {
+      background: var(--bg-surface);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      transition: all 0.35s ease;
+    }
+
+    .glass-box:hover {
+      border-color: var(--card-border-hover);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 35px rgba(255, 107, 44, 0.12);
+    }
+
+    /* Stat Cards */
+    .stat-pill {
+      padding: 24px;
+      text-align: center;
+      height: 100%;
+    }
+
+    .stat-pill i {
+      font-size: 28px;
+      color: var(--primary-orange);
+      margin-bottom: 12px;
+    }
+
+    .stat-pill h3 {
+      font-size: 26px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    /* Skills Progress Sliders */
+    .skill-slider-item {
+      margin-bottom: 26px;
+    }
+
+    .skill-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+
+    .skill-percentage-text {
+      background: transparent !important;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 1;
+      display: inline-block;
+      text-shadow: 0 0 10px currentColor;
+    }
+
+    .skill-track {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      position: relative;
+    }
+
+    .skill-fill {
+      height: 100%;
+      border-radius: 20px;
+      position: relative;
+    }
+
+    .skill-fill::after {
+      content: '';
+      position: absolute;
+      right: -4px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 10px currentColor;
+    }
+
+    /* Distinct Color Classes */
+    .color-pb { color: #00d2ff !important; }
+    .bg-pb { background-color: #00d2ff; }
+
+    .color-sql { color: #ffd166 !important; }
+    .bg-sql { background-color: #ffd166; }
+
+    .color-py { color: #06d6a0 !important; }
+    .bg-py { background-color: #06d6a0; }
+
+    .color-ex { color: #ff5252 !important; }
+    .bg-ex { background-color: #ff5252; }
+
+    .color-ml { color: #b388ff !important; }
+    .bg-ml { background-color: #b388ff; }
+
+    .color-qa { color: #ff9100 !important; }
+    .bg-qa { background-color: #ff9100; }
+
+    /* Project Cards */
+    .project-card {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .project-header-graphic {
+      height: 125px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 38px;
+      color: #fff;
+    }
+
+    .project-body {
+      padding: 24px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .tech-pill {
+      background: rgba(255, 107, 44, 0.12);
+      border: 1px solid rgba(255, 107, 44, 0.3);
+      color: var(--primary-orange);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    /* Timeline */
+    .timeline-node {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 28px;
+      border-left: 2px solid var(--primary-orange);
+    }
+
+    .timeline-node::before {
+      content: '';
+      position: absolute;
+      left: -7px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--primary-orange);
+      box-shadow: 0 0 12px var(--primary-orange);
+    }
+
+    /* Form Controls */
+    .contact-input {
+      background: rgba(18, 14, 13, 0.7);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 12px 16px;
+      color: #fff;
+      font-size: 14px;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+
+    .contact-input:focus {
+      outline: none;
+      background: rgba(25, 18, 16, 0.95);
+      border-color: var(--primary-orange);
+      box-shadow: 0 0 15px rgba(255, 107, 44, 0.25);
+      color: #fff;
+    }
+
+    .contact-input::placeholder {
+      color: #6b635b;
+    }
+
+    /* Responsive */
+    @media (max-width: 991px) {
+      .nav-menu { display: none; }
+      .hero-title { font-size: 40px; }
+      .orbital-container { height: 420px; margin-top: 30px; }
+      .main-avatar-wrap { width: 170px; height: 170px; }
+      .avatar-inner { font-size: 80px; }
+      .ring-1 { width: 230px; height: 230px; }
+      .ring-2 { width: 330px; height: 330px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FLOATING TOP NAVBAR -->
+  <header class="header-nav">
+    <nav class="nav-pill">
+      <a href="#home" class="brand-logo">Kuruba Teja<span>.</span></a>
+      
+      <ul class="nav-menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#work">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <a href="resume.pdf" download class="btn-nav-action"><i class="fa-solid fa-download me-2"></i>Download CV</a>
+    </nav>
+  </header>
+
+  <main class="main-wrapper">
+
+    <!-- HERO SECTION WITH INTERACTIVE 3D AVATAR & ANALYTICS WIDGETS -->
+    <div id="home" class="hero-container row align-items-center">
+      
+      <!-- Left Column: Greeting, Title, Action, Quote Card -->
+      <div class="col-lg-6">
+        <p class="greeting-badge">Hey, I am <strong>Kuruba Teja</strong> 👋</p>
+        <h1 class="hero-title">
+          <span class="role-gradient" id="typed-text"></span>
+        </h1>
+        
+        <div class="d-flex gap-3 align-items-center flex-wrap">
+          <a href="#contact" class="btn-hero-primary">
+            Hire me <i class="fa-solid fa-arrow-right ms-2"></i>
+          </a>
+          <a href="#work" class="btn-hero-secondary">
+            View Works <i class="fa-solid fa-eye ms-2"></i>
+          </a>
+        </div>
+
+        <!-- Glass Bio / Quote Box -->
+        <div class="hero-quote-card">
+          <i class="fa-solid fa-quote-left quote-icon"></i>
+          <p>
+            Analytical and proactive Data Analyst with AI specialization. Transforming complex data pipelines into interactive Power BI executive dashboards and predictive machine learning models.
+          </p>
+          <div class="quote-author">
+            <div class="quote-avatar-mini">👨‍💻</div>
+            <div class="quote-author-info">
+              <h6>Kuruba Teja</h6>
+              <small>Data Analyst & ML Engineer • Hyderabad, India</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Interactive 3D Avatar, Glowing Orbits & Analytics Badges -->
+      <div class="col-lg-6">
+        <div class="orbital-container">
+          <div class="glow-backdrop"></div>
+          <div class="orbit-ring ring-1"></div>
+          <div class="orbit-ring ring-2"></div>
+          
+          <!-- Analytics Widget 1: Power BI KPI Metric Shadow -->
+          <div class="analytics-shadow-card analytics-widget-1">
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-chart-column" style="color: #00d2ff;"></i>
+              <span class="fw-bold text-light">Power BI KPI</span>
+            </div>
+            <div class="mini-bar-chart">
+              <div class="mini-bar" style="height: 40%; background: #00d2ff;"></div>
+              <div class="mini-bar" style="height: 70%; background: #00d2ff;"></div>
+              <div class="mini-bar" style="height: 55%; background: #00d2ff;"></div>
+              <div class="mini-bar" style="height: 95%; background: var(--primary-orange);"></div>
+              <div class="mini-bar" style="height: 80%; background: #00d2ff;"></div>
+            </div>
+          </div>
+
+          <!-- Analytics Widget 2: DAX YoY Metrics -->
+          <div class="analytics-shadow-card analytics-widget-2">
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-bolt" style="color: #ffd166;"></i>
+              <span class="fw-bold text-light">DAX Measure</span>
+            </div>
+            <div class="text-success small fw-semibold mt-1">
+              <i class="fa-solid fa-arrow-trend-up me-1"></i> +28.4% YoY Growth
+            </div>
+          </div>
+
+          <!-- Analytics Widget 3: High-Contrast SQL Query Shadow -->
+          <div class="analytics-shadow-card analytics-widget-3">
+            <div class="d-flex align-items-center gap-2">
+              <i class="fa-solid fa-database" style="color: #00f2fe;"></i>
+              <span class="sql-code-text">SELECT TOP 1 *;</span>
+            </div>
+          </div>
+
+          <!-- Orbiting Tech Icons -->
+          <div class="floating-tech-icon tech-pos-1"><i class="fa-brands fa-python"></i></div>
+          <div class="floating-tech-icon tech-pos-2"><i class="fa-solid fa-chart-pie"></i></div>
+          <div class="floating-tech-icon tech-pos-3"><i class="fa-solid fa-brain"></i></div>
+
+          <!-- Interactive Center 3D Avatar with Speech Bubble -->
+          <div class="avatar-interactive-wrap">
+            <div class="avatar-speech-bubble">
+              Hi all! <span class="wave-hand">👋</span> Hope you're doing well!
+            </div>
+            <div class="main-avatar-wrap">
+              <div class="avatar-inner">
+                👨‍💻
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+      <span class="section-tag">About Me</span>
+      <h2 class="section-heading">Designing Insights Through Data</h2>
+      <p style="color: var(--text-muted); line-height: 1.8; font-size: 16px;">
+        I hold a B.Tech in Computer Science & AI (8.0 GPA). Proficient in Python, SQL, Advanced Excel/Google Sheets, and Power BI/Tableau for cleaning structured and unstructured datasets, evaluating data suitability for AI pipelines, and performing model evaluation and validation. Experienced in translating technical findings into actionable visual business summaries across asynchronous environments.
+      </p>
+
+      <div class="row g-3 mt-4">
+        <div class="col-6 col-md-3">
+          <div class="glass-box stat-pill">
+            <i class="fa-solid fa-graduation-cap"></i>
+            <h3>B.Tech (AI)</h3>
+            <small style="color: var(--text-muted);">8.0 CGPA</small>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="glass-box stat-pill">
+            <i class="fa-solid fa-bolt"></i>
+            <h3>Fresher</h3>
+            <small style="color: var(--text-muted);">Ready to Work</small>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="glass-box stat-pill">
+            <i class="fa-solid fa-diagram-project"></i>
+            <h3>6</h3>
+            <small style="color: var(--text-muted);">Projects Completed</small>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="glass-box stat-pill">
+            <i class="fa-solid fa-award"></i>
+            <h3>4+</h3>
+            <small style="color: var(--text-muted);">Certifications</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES / WHAT I DO -->
+    <section id="services">
+      <span class="section-tag">Expertise</span>
+      <h2 class="section-heading">What I Do</h2>
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="glass-box p-4 h-100">
+            <i class="fa-solid fa-chart-column mb-3" style="font-size: 28px; color: var(--primary-orange);"></i>
+            <h5 class="fw-bold text-light">Data Analysis & Visualization</h5>
+            <p class="small mb-0" style="color: var(--text-muted); line-height: 1.7;">Designing interactive Power BI & Tableau dashboards with DAX measures, dynamic filtering, and KPI tracking for actionable business storytelling.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="glass-box p-4 h-100">
+            <i class="fa-solid fa-brain mb-3" style="font-size: 28px; color: var(--primary-orange);"></i>
+            <h5 class="fw-bold text-light">Machine Learning & AI Modeling</h5>
+            <p class="small mb-0" style="color: var(--text-muted); line-height: 1.7;">Building predictive classifiers using Scikit-learn (Random Forest, XGBoost), hyperparameter tuning, cross-validation, and data suitability evaluation.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="glass-box p-4 h-100">
+            <i class="fa-solid fa-database mb-3" style="font-size: 28px; color: var(--primary-orange);"></i>
+            <h5 class="fw-bold text-light">SQL & Database Querying</h5>
+            <p class="small mb-0" style="color: var(--text-muted); line-height: 1.7;">Writing complex SQL queries with joins, subqueries, and aggregations for data extraction, transformation, QA verification, and database cleanup.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="glass-box p-4 h-100">
+            <i class="fa-solid fa-file-excel mb-3" style="font-size: 28px; color: var(--primary-orange);"></i>
+            <h5 class="fw-bold text-light">MIS & Automated Reporting</h5>
+            <p class="small mb-0" style="color: var(--text-muted); line-height: 1.7;">Creating structured reports with Advanced Excel and Google Sheets utilizing QUERY functions, PivotTables, formulas, and data validation rules.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills">
+      <span class="section-tag">Technical Toolbox</span>
+      <h2 class="section-heading">My Skills</h2>
+
+      <!-- Progress Sliders -->
+      <div class="row g-4 mb-5">
+        <div class="col-md-6">
+          <div class="skill-slider-item">
+            <div class="skill-info">
+              <span>Power BI</span>
+              <span class="skill-percentage-text color-pb">85%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill bg-pb" style="width: 85%;"></div>
+            </div>
+          </div>
+
+          <div class="skill-slider-item">
+            <div class="skill-info">
+              <span>SQL / MySQL</span>
+              <span class="skill-percentage-text color-sql">80%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill bg-sql" style="width: 80%;"></div>
+            </div>
+          </div>
+
+          <div class="skill-slider-item">
+            <div class="skill-info">
+              <span>Python (Pandas, Scikit-learn)</span>
+              <span class="skill-percentage-text color-py">75%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill bg-py" style="width: 75%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="skill-slider-item">
+            <div class="skill-info">
+              <span>MS Excel / Google Sheets</span>
+              <span class="skill-percentage-text color-ex">85%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill bg-ex" style="width: 85%;"></div>
+            </div>
+          </div>
+
+          <div class="skill-slider-item">
+            <div class="skill-info">
+              <span>Machine Learning & EDA</span>
+              <span class="skill-percentage-text color-ml">60%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill bg-ml" style="width: 60%;"></div>
+            </div>
+          </div>
+
+          <div class="skill-slider-item">
+            <div class="skill-info">
+              <span>Data Quality & QA Verification</span>
+              <span class="skill-percentage-text color-qa">80%</span>
+            </div>
+            <div class="skill-track">
+              <div class="skill-fill bg-qa" style="width: 80%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skill Badges Cards Grid (Expanded to 8 Rounded Cards) -->
+      <div class="row g-3">
+        <!-- 1. Python -->
+        <div class="col-6 col-md-3">
+          <div class="glass-box p-3 text-center">
+            <i class="fa-brands fa-python" style="color: #00d2ff; font-size: 28px;"></i>
+            <h6 class="mb-0 mt-2 fw-bold text-light">Python</h6>
+            <small style="color: var(--text-muted); font-size: 11px;">Pandas, Scikit-learn</small>
+          </div>
+        </div>
+        <!-- 2. SQL / MySQL -->
+        <div class="col-6 col-md-3">
+          <div class="glass-box p-3 text-center">
+            <i class="fa-solid fa-server" style="color: #ffd166; font-size: 28px;"></i>
+            <h6 class="mb-0 mt-2 fw-bold text-light">SQL / MySQL</h6>
+            <small style="color: var(--text-muted); font-size: 11px;">Joins & Aggregations</small>
+          </div>
+        </div>
+        <!-- 3. Power BI -->
+        <div class="col-6 col-md-3">
+          <div class="glass-box p-3 text-center">
+            <i class="fa-solid fa-chart-column" style="color: #ff9100; font-size: 28px;"></i>
+            <h6 class="mb-0 mt-2 fw-bold text-light">Power BI</h6>
+            <small style="color: var(--text-muted); font-size: 11px;">DAX & Modeling</small>
+          </div>
+        </div>
+        <!-- 4. Excel & Sheets -->
+        <div class="col-6 col-md-3">
+          <div class="glass-box p-3 text-center">
+            <i class="fa-solid fa-file-excel" style="color: #06d6a0; font-size: 28px;"></i>
+            <h6 class="mb-0 mt-2 fw-bold text-light">Excel & Sheets</h6>
+            <small style="color: var(--text-muted); font-size: 11px;">Pivot & Formulas</small>
+          </div>
+        </div>
+        <!-- 5. Machine Learning -->
+        <div class="col-6 col-md-3">
+          <div class="glass-box p-3 text-center">
+            <i class="fa-solid fa-robot" style="color: #b388ff; font-size: 28px;"></i>
+            <h6 class="mb-0 mt-2 fw-bold text-light">Machine Learning</h6>
+            <small style="color: var(--text-muted); font-size: 11px;">XGBoost & Trees</small>
+          </div>
+        </div>
+        <!-- 6. Tableau -->
+        <div class="col-6 col-md-3">
+          <div class="glass-box p-3 text-center">
+            <i class="fa-solid fa-chart-pie" style="color: #4facfe; font-size: 28px;"></i>
+            <h6 class="mb-0 mt-2 fw-bold text-light">Tableau</h6>
+            <small style="color: var(--text-muted); font-size: 11px;">Visual Dashboards</small>
+          </div>
+        </div>
+        <!-- 7. Git & GitHub -->
+        <div class="col-6 col-md-3">
+          <div class="glass-box p-3 text-center">
+            <i class="fa-brands fa-git-alt" style="color: #ff5252; font-size: 28px;"></i>
+            <h6 class="mb-0 mt-2 fw-bold text-light">Git & GitHub</h6>
+            <small style="color: var(--text-muted); font-size: 11px;">Version Control</small>
+          </div>
+        </div>
+        <!-- 8. Data Quality / QA -->
+        <div class="col-6 col-md-3">
+          <div class="glass-box p-3 text-center">
+            <i class="fa-solid fa-magnifying-glass-chart" style="color: #00e676; font-size: 28px;"></i>
+            <h6 class="mb-0 mt-2 fw-bold text-light">Data Quality / QA</h6>
+            <small style="color: var(--text-muted); font-size: 11px;">Data Suitability</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <span class="section-tag">Milestones</span>
+      <h2 class="section-heading">Education</h2>
+      
+      <div class="timeline-node">
+        <h5 class="fw-bold text-light mb-1">B.Tech in Computer Science Engineering (Artificial Intelligence)</h5>
+        <span class="fw-semibold" style="color: var(--primary-orange);">Sreenivasa Institute of Technology and Management Studies (JNTUA) • 2021 – 2025</span>
+        <p class="mt-1 mb-1" style="color: var(--text-muted);"><strong>GPA:</strong> 8.0</p>
+        <p class="small mb-0" style="color: var(--text-muted);">Specialized coursework in Computer Science, Artificial Intelligence, Machine Learning, Database Management Systems, and Data Analytics.</p>
+      </div>
+
+      <div class="timeline-node">
+        <h5 class="fw-bold text-light mb-1">Intermediate (MPC - Maths, Physics, Chemistry)</h5>
+        <span class="fw-semibold" style="color: var(--primary-orange);">Suvarna Bharathi Jr College</span>
+        <p class="mt-1 mb-1" style="color: var(--text-muted);"><strong>GPA:</strong> 8.0</p>
+        <p class="small mb-0" style="color: var(--text-muted);">Focused on core analytical disciplines, mathematics, and foundational science.</p>
+      </div>
+
+      <div class="timeline-node">
+        <h5 class="fw-bold text-light mb-1">Class X (Secondary School Certificate)</h5>
+        <span class="fw-semibold" style="color: var(--primary-orange);">Zilla Parishad High School, Pulamathi</span>
+        <p class="mt-1 mb-1" style="color: var(--text-muted);"><strong>GPA:</strong> 8.7</p>
+        <p class="small mb-0" style="color: var(--text-muted);">
+          Completed schooling at a Zilla Parishad Government School. Coming from a government school background with limited early exposure to English and technology instilled strong discipline, adaptability, and self-motivation—driving continuous self-improvement in technical and communication skills.
+        </p>
+      </div>
+    </section>
+
+    <!-- FEATURED PROJECTS -->
+    <section id="work">
+      <span class="section-tag">Portfolio</span>
+      <h2 class="section-heading">Featured Projects</h2>
+      <div class="row g-4">
+        
+        <!-- Project 1: Hospital ER Analysis Dashboard -->
+        <div class="col-md-6">
+          <div class="glass-box project-card">
+            <div class="project-header-graphic" style="background: linear-gradient(135deg, #eb3349 0%, #f45c43 100%);">
+              <i class="fa-solid fa-hospital-user"></i>
+            </div>
+            <div class="project-body">
+              <div>
+                <span class="tech-pill">Power BI & Excel</span>
+                <h5 class="fw-bold text-light">Hospital ER Analytics Dashboard</h5>
+                <p class="small" style="color: var(--text-muted);">
+                  Developed an interactive Hospital Emergency Room dashboard using Power BI and Excel. Handled data transformation, data modeling, and KPI tracking to evaluate patient wait times, admission trends, and departmental performance.
+                </p>
+              </div>
+              <a href="https://github.com/kt-png/Hospital-ER-Dash-Board.git" target="_blank" class="fw-semibold text-decoration-none mt-2" style="color: var(--primary-orange);">GitHub Repo <i class="fa-solid fa-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2: Swiggy Sales Dashboard -->
+        <div class="col-md-6">
+          <div class="glass-box project-card">
+            <div class="project-header-graphic" style="background: linear-gradient(135deg, #fc8019 0%, #ff5722 100%);">
+              <i class="fa-solid fa-utensils"></i>
+            </div>
+            <div class="project-body">
+              <div>
+                <span class="tech-pill">Power BI, SQL & Excel</span>
+                <h5 class="fw-bold text-light">Swiggy Sales Dashboard</h5>
+                <p class="small" style="color: var(--text-muted);">
+                  Built an interactive Power BI food delivery dashboard analyzing key KPIs (Revenue, Orders, AOV, Customer Trends, Restaurant Performance). Handled end-to-end data cleaning, data modeling, and custom DAX measures.
+                </p>
+              </div>
+              <a href="https://github.com/kt-png/Swiggy-Sales-Dash-Board.git" target="_blank" class="fw-semibold text-decoration-none mt-2" style="color: var(--primary-orange);">GitHub Repo <i class="fa-solid fa-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3: HR Analytics Dashboard -->
+        <div class="col-md-6">
+          <div class="glass-box project-card">
+            <div class="project-header-graphic" style="background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);">
+              <i class="fa-solid fa-users-gear"></i>
+            </div>
+            <div class="project-body">
+              <div>
+                <span class="tech-pill">Power BI & Excel</span>
+                <h5 class="fw-bold text-light">HR Analytics Dashboard</h5>
+                <p class="small" style="color: var(--text-muted);">
+                  Developed an interactive HR Analytics Dashboard using Power BI and Excel to evaluate workforce metrics and HR KPIs. Performed data transformation, modeling, and demographic visualization to uncover key employee trends.
+                </p>
+              </div>
+              <a href="https://github.com/kt-png/HR-Data-Dash-Board.git" target="_blank" class="fw-semibold text-decoration-none mt-2" style="color: var(--primary-orange);">GitHub Repo <i class="fa-solid fa-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4: Substance Use Prediction -->
+        <div class="col-md-6">
+          <div class="glass-box project-card">
+            <div class="project-header-graphic" style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <div class="project-body">
+              <div>
+                <span class="tech-pill">Python & Scikit-learn</span>
+                <h5 class="fw-bold text-light">Substance Use Prediction</h5>
+                <p class="small" style="color: var(--text-muted);">
+                  Cleaned demographic datasets using Pandas & NumPy. Built Random Forest and XGBoost classifiers with hyperparameter tuning, cross-validation, and automated data QA checks.
+                </p>
+              </div>
+              <a href="https://github.com/kt-png" target="_blank" class="fw-semibold text-decoration-none mt-2" style="color: var(--primary-orange);">GitHub Repo <i class="fa-solid fa-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5: Blinkit Sales Dashboard -->
+        <div class="col-md-6">
+          <div class="glass-box project-card">
+            <div class="project-header-graphic" style="background: linear-gradient(135deg, #f09819 0%, #edde5d 100%);">
+              <i class="fa-solid fa-cart-shopping text-dark"></i>
+            </div>
+            <div class="project-body">
+              <div>
+                <span class="tech-pill">Power BI & SQL</span>
+                <h5 class="fw-bold text-light">Blinkit Sales Dashboard</h5>
+                <p class="small" style="color: var(--text-muted);">
+                  Built an interactive Power BI dashboard tracking 4 core KPIs across 8+ product categories. Created DAX measures for dynamic filtering and wrote complex SQL queries in MySQL for QA verification.
+                </p>
+              </div>
+              <a href="https://github.com/kt-png" target="_blank" class="fw-semibold text-decoration-none mt-2" style="color: var(--primary-orange);">GitHub Repo <i class="fa-solid fa-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6: Meta Ads Performance Dashboard -->
+        <div class="col-md-6">
+          <div class="glass-box project-card">
+            <div class="project-header-graphic" style="background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div class="project-body">
+              <div>
+                <span class="tech-pill">Power BI & Sheets</span>
+                <h5 class="fw-bold text-light">Meta Ads Performance Dashboard</h5>
+                <p class="small" style="color: var(--text-muted);">
+                  Defined 6 KPIs for demographic, geographic, and hourly trend analytics. Used Google Sheets (QUERY, Pivot Tables) for ad-hoc reporting and standardized business intelligence definitions.
+                </p>
+              </div>
+              <a href="https://github.com/kt-png" target="_blank" class="fw-semibold text-decoration-none mt-2" style="color: var(--primary-orange);">GitHub Repo <i class="fa-solid fa-arrow-right ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+      <span class="section-tag">Credentials</span>
+      <h2 class="section-heading">Certifications</h2>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <div class="glass-box p-4">
+            <h6 class="fw-bold text-light mb-1"><i class="fa-solid fa-certificate me-2" style="color: var(--primary-orange);"></i>Python Full Stack Internship</h6>
+            <span class="small" style="color: var(--text-muted);">Python, SQL, and full-stack development foundations.</span>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="glass-box p-4">
+            <h6 class="fw-bold text-light mb-1"><i class="fa-solid fa-certificate me-2" style="color: var(--primary-orange);"></i>SQL (Intermediate)</h6>
+            <span class="small" style="color: var(--text-muted);">Advanced SQL querying, aggregations, and database management.</span>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="glass-box p-4">
+            <h6 class="fw-bold text-light mb-1"><i class="fa-solid fa-certificate me-2" style="color: var(--primary-orange);"></i>Power BI Workshop</h6>
+            <span class="small" style="color: var(--text-muted);">Interactive dashboard development, DAX, and visual storytelling.</span>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="glass-box p-4">
+            <h6 class="fw-bold text-light mb-1"><i class="fa-solid fa-certificate me-2" style="color: var(--primary-orange);"></i>Introduction to Internet of Things (NPTEL)</h6>
+            <span class="small" style="color: var(--text-muted);">IoT fundamentals, connectivity protocols, and edge applications.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GET IN TOUCH / CONTACT FORM SECTION -->
+    <section id="contact" style="border-bottom:none;">
+      <span class="section-tag">Get In Touch</span>
+      <h2 class="section-heading">Connect & Send a Message</h2>
+      
+      <!-- Contact Cards -->
+      <div class="row g-3 mb-4">
+        <div class="col-6 col-md-3">
+          <a href="mailto:kurubaKuruba TejakurubaKuruba Teja@gmail.com" class="text-decoration-none">
+            <div class="glass-box stat-pill">
+              <i class="fa-solid fa-envelope"></i>
+              <h6 class="fw-bold mt-2 text-light">Email</h6>
+              <span class="small text-truncate d-block" style="color: var(--text-muted);">kurubaKuruba TejakurubaKuruba Teja@gmail.com</span>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-3">
+          <a href="tel:+916305413519" class="text-decoration-none">
+            <div class="glass-box stat-pill">
+              <i class="fa-solid fa-phone"></i>
+              <h6 class="fw-bold mt-2 text-light">Phone</h6>
+              <span class="small" style="color: var(--text-muted);">+91 6305413519</span>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-3">
+          <a href="https://www.linkedin.com/in/kuruba-Kuruba Teja-9b215b2b0/" target="_blank" class="text-decoration-none">
+            <div class="glass-box stat-pill">
+              <i class="fa-brands fa-linkedin" style="color: #00d2ff;"></i>
+              <h6 class="fw-bold mt-2 text-light">LinkedIn</h6>
+              <span class="small" style="color: var(--text-muted);">View Profile</span>
+            </div>
+          </a>
+        </div>
+        <div class="col-6 col-md-3">
+          <a href="https://www.naukri.com/mnjuser/profile?id=&altresid" target="_blank" class="text-decoration-none">
+            <div class="glass-box stat-pill">
+              <i class="fa-solid fa-briefcase" style="color: var(--primary-orange);"></i>
+              <h6 class="fw-bold mt-2 text-light">Naukri</h6>
+              <span class="small" style="color: var(--text-muted);">Candidate Profile</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Live Contact Message Form -->
+      <div class="glass-box p-4 p-md-5">
+        <h4 class="fw-bold text-light mb-2">Send Me a Message Directly</h4>
+        <p class="small mb-4" style="color: var(--text-muted);">Have a job opportunity, project discussion, or data query? Fill in the details below to reach my inbox directly.</p>
+        
+        <form action="https://formsubmit.co/kurubaKuruba TejakurubaKuruba Teja@gmail.com" method="POST">
+          <!-- FormSubmit Configuration -->
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_subject" value="New Message from Portfolio Visitor!">
+
+          <div class="row g-3">
+            <!-- 1. Name -->
+            <div class="col-md-4">
+              <label class="form-label small fw-semibold text-light">Your Name</label>
+              <input type="text" name="name" class="contact-input" placeholder="e.g. John Doe" required>
+            </div>
+            <!-- 2. Gmail / Email -->
+            <div class="col-md-4">
+              <label class="form-label small fw-semibold text-light">Your Email / Gmail</label>
+              <input type="email" name="email" class="contact-input" placeholder="name@gmail.com" required>
+            </div>
+            <!-- 3. Reason for Contact -->
+            <div class="col-md-4">
+              <label class="form-label small fw-semibold text-light">Reason for Contact</label>
+              <select name="reason" class="contact-input" style="cursor: pointer;" required>
+                <option value="" disabled selected>Select a reason...</option>
+                <option value="Hiring / Job Opportunity" style="background: #1a1412;">💼 Hiring / Job Opportunity</option>
+                <option value="Freelance / Dashboard Project" style="background: #1a1412;">📊 Freelance / Dashboard Project</option>
+                <option value="Data Analytics Consultation" style="background: #1a1412;">🔍 Data Analytics Consultation</option>
+                <option value="General Networking" style="background: #1a1412;">🤝 General Networking</option>
+              </select>
+            </div>
+            <!-- 4. Message -->
+            <div class="col-12">
+              <label class="form-label small fw-semibold text-light">Message / Details</label>
+              <textarea name="message" class="contact-input" rows="4" placeholder="Write your message here..." required></textarea>
+            </div>
+            <!-- Submit Button -->
+            <div class="col-12 mt-4">
+              <button type="submit" class="btn-hero-primary">
+                Send Message <i class="fa-solid fa-paper-plane ms-2"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- TYPING ANIMATION SCRIPT -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      new Typed("#typed-text", {
+        strings: [
+          "Data Analyst",
+          "ML Engineer",
+          "BI Developer",
+          "SQL Specialist"
+        ],
+        typeSpeed: 60,
+        backSpeed: 35,
+        backDelay: 1800,
+        loop: true
+      });
+    });
+  </script>
+
+</body>
+</html>
