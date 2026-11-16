@@ -32,6 +32,7 @@ I enjoy transforming raw data into meaningful insights, developing interactive d
 | Spreadsheet Tools | Advanced Excel, Google Sheets |
 | Data Analysis | Exploratory Data Analysis, Data Cleaning |
 | Machine Learning | Random Forest, XGBoost, Classification |
+|Azure Data Factory | Triggers | Activities | Logical App|
 | Version Control | Git, GitHub |
 
 ---
@@ -61,7 +62,18 @@ I enjoy transforming raw data into meaningful insights, developing interactive d
 - Pivot Tables and formulas.
 - Automated reporting.
 - Data validation.
+### ☁️ Azure Data Factory (ADF)
 
+- Understanding of Azure Data Factory architecture.
+- Creating and managing Pipelines.
+- Working with Linked Services and Datasets.
+- Understanding Integration Runtime (Azure, Self-hosted).
+- Using Copy Data Activity to move data between sources and destinations.
+- Working with Lookup and ForEach activities.
+- Implementing Parameterization in pipelines and datasets.
+- Understanding Triggers and Pipeline Scheduling.
+- Basic knowledge of Azure Blob Storage and Azure Data Lake Storage (ADLS).
+- Understanding CI/CD fundamentals in Azure Data Factory.
 ---
 
 ## 🚀 Featured Projects
