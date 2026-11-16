@@ -32,7 +32,7 @@ I enjoy transforming raw data into meaningful insights, developing interactive d
 | Spreadsheet Tools | Advanced Excel, Google Sheets |
 | Data Analysis | Exploratory Data Analysis, Data Cleaning |
 | Machine Learning | Random Forest, XGBoost, Classification |
-|Azure Data Factory | Triggers | Activities | Logical App|
+Cloud & Data Engineering	Azure Data Factory (ADF), Azure Blob Storage, Azure Data Lake Storage (ADLS)
 | Version Control | Git, GitHub |
 
 ---
